@@ -1,0 +1,30 @@
+{
+  "name": "Calculadora de Incerteza de Medição · ISO/IEC 17025",
+  "short_name": "Incerteza ISO 17025",
+  "description": "Calculadora metrológica offline de incerteza de medição conforme GUM, Eurachem e ISO/IEC 17025:2017 com memória de cálculo auditada.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f3f6f9",
+  "theme_color": "#102e46",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
