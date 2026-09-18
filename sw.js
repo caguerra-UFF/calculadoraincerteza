@@ -1,7 +1,7 @@
 /* Service Worker - Calculadora de Incerteza ISO/IEC 17025
    Cache local para funcionamento 100% offline em bancadas e laboratórios */
 
-const CACHE_NAME = 'incerteza-iso17025-v4.2';
+const CACHE_NAME = 'incerteza-iso17025-v4.3';
 const ASSETS = [
   './',
   './index.html',
@@ -9,6 +9,11 @@ const ASSETS = [
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png',
+  './assets/logo_eletronuclear.png',
+  './assets/logo_elma.png',
+  './assets/logo_ien.png',
+  './assets/logo_uerj.png',
+  './assets/logo_uff.png',
   './guia_calculadora/vendor/pdfjs/pdf.min.js',
   './guia_calculadora/vendor/pdfjs/pdf.worker.min.js',
   './docs/Guia_Ilustrado_Calculadora_Incerteza_Nitrito.pdf'
