@@ -1,0 +1,27 @@
+==========================================================================
+Tabela: orcamento de incerteza (p10)
+--------------------------------------------------------------------------
+Fonte                              avail=  92.8  need=  27.8  OK      
+Certificado                        avail=  82.8  need=  53.1  OK      
+U / ┬▒a / r                         avail=  45.4  need=  42.5  OK      
+k                                  avail=  10.5  need=   5.7  OK      
+Distribui├º├úo                       avail=  55.4  need=  58.5  OVERFLOW
+u(x)                               avail=  45.4  need=  19.5  OK      
+Tratamento                         avail=  82.8  need=  56.8  OK      
+==========================================================================
+Tabela: alternativas propostas para 'Distribuicao'
+--------------------------------------------------------------------------
+Fonte                              avail=  90.3  need=  27.8  OK      
+Certificado                        avail=  80.3  need=  53.1  OK      
+U / ┬▒a / r                         avail=  45.4  need=  42.5  OK      
+k                                  avail=  10.5  need=   5.7  OK      
+Distribui├º├úo                       avail=  60.3  need=  58.5  OK      
+u(x)                               avail=  45.4  need=  19.5  OK      
+Tratamento                         avail=  82.8  need=  56.8  OK      
+==========================================================================
+Dados (regular 8.6) da tabela das cinco fontes
+--------------------------------------------------------------------------
+Fonte          Padr├úo de nitrito=72.0; Balan├ºa anal├¡tica=73.5; Bal├úo volum├®trico=78.0; Pipetador 10 mL=70.8; Espectrofot├┤metro=80.3; ESP-1=24.7
+Certificado    CRM-NIT-2026-005=81.2; BAL-2026-088=61.1; VOL-100-2026-021=81.5; PIP-010-2026-034=76.9; ESP-2026-011=60.6
+U / ┬▒a / r     1,0 mg/L=37.9; 0,0002 g=38.3; 0,2 mL=29.6; 0,05 mL=35.1; 0,002 abs=42.6
+Tratamento     J├í incorporada=62.2; N├úo aplic├ível=58.0

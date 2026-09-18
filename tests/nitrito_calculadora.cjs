@@ -19,18 +19,21 @@ const close = (x,y,tol=1e-8)=>assert.ok(Math.abs(x-y)<tol, `${x} != ${y}`);
   page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});
   page.on('dialog',d=>d.accept());
   await page.goto(pathToFileURL(path.join(root,target)).href);
+  const nitritoCard = page.locator('#card-nitrito');
+  if (await nitritoCard.isVisible({timeout:1500}).catch(()=>false)) {
+    await nitritoCard.click();
+  }
   await page.waitForSelector('#result strong');
   const baseline=await page.evaluate(()=>Nitrito.calculate(Nitrito.example()));
   assert.deepEqual(baseline.errors,[]);
   close(baseline.y,.085); close(baseline.p.mean,.0846); close(baseline.p.s,.0021);
   close(baseline.check.mean,.00995); close(baseline.check.s,.0001125);
-  close(baseline.b,-.005); close(baseline.recovery.mean,98.5);
+  close(baseline.b,-.005);
   // Independent fixed-value evaluation; do not reuse the application's combine function.
   const expectedBias=Math.sqrt(.005**2+(.0001125/(Math.sqrt(10)*.010))**2+.003**2);
-  const expectedMatrix=Math.sqrt(.015**2+.006**2+.003**2);
-  const expectedUc=.085*Math.sqrt((.0021/.0846)**2+expectedBias**2+expectedMatrix**2);
+  const expectedUc=.085*Math.sqrt((.0021/.0846)**2+expectedBias**2);
   close(baseline.uc,expectedUc); close(baseline.U,2*expectedUc);
-  assert.match(await page.locator('#result').innerText(),/0,0850 ± 0,0052/);
+  assert.match(await page.locator('#result').innerText(),/0,0850 ± 0,0044/);
   const standard=baseline.certificates[0],balance=baseline.certificates[1],flask=baseline.certificates[2],pipette=baseline.certificates[3];
   close(standard.u,5);close(balance.u,.0001);close(flask.u,.1);close(pipette.u,.0025);
   close(baseline.budget.reduce((a,x)=>a+x.share,0),100);
@@ -46,7 +49,8 @@ const close = (x,y,tol=1e-8)=>assert.ok(Math.abs(x-y)<tol, `${x} != ${y}`);
       zeroK:run(s=>s.fields.coverage='0'),certK:run(s=>s.certs[0].k='0'),
       short:run(s=>s.monthly=s.monthly.slice(0,1)),expired:run(s=>s.certs[0].expiry='2020-01-01'),
       duplicated:run(s=>{s.certs[0].mode='include';s.certs[0].name='Analista';}),
-      recovery:run(s=>s.residualRecovery=false),
+      // v3.2: analista/equipamento/lote sao registros opcionais e nao bloqueiam o calculo.
+      semRastreabilidade:run(s=>s.monthly.forEach(r=>{r.analyst='';r.equipment='';r.lot='';})),
       unbalanced:run(s=>{s.monthly[1].run=s.monthly[0].run;s.monthly[1].date=s.monthly[0].date;s.monthly[1].rep='2';}),
       independentCert:run(s=>s.certs[0].mode='include'),
       rectangle:run(s=>{s.certs[0].mode='include';s.certs[0].distribution='rect';}),
@@ -59,8 +63,11 @@ const close = (x,y,tol=1e-8)=>assert.ok(Math.abs(x-y)<tol, `${x} != ${y}`);
       reject:run(s=>{s.fields.decisionMode='upper';s.fields.decisionAgreement='Acordo teste';s.fields.limit='.07';})
     };
   });
-  for(const name of ['empty','maxHigh','zeroK','certK','short','duplicated','recovery','unbalanced','wrongCheck','failedCheck'])assert.ok(scenarios[name].errors.length,name);
+  for(const name of ['empty','maxHigh','zeroK','certK','short','duplicated','unbalanced','wrongCheck','failedCheck'])assert.ok(scenarios[name].errors.length,name);
   assert.ok(scenarios.expired.warnings.some(x=>/vencido/.test(x)));
+  // v3.2: sem analista/equipamento/lote o orcamento continua valido e igual ao caso completo.
+  assert.equal(scenarios.semRastreabilidade.errors.length,0);
+  close(scenarios.semRastreabilidade.U,baseline.U);
   close(scenarios.independentCert.uc,Math.sqrt(baseline.uc**2+(.085*.005)**2));
   close(scenarios.rectangle.certificates[0].u,10/Math.sqrt(3));
   close(scenarios.resolution.certificates[0].u,10/Math.sqrt(12));
@@ -75,6 +82,13 @@ const close = (x,y,tol=1e-8)=>assert.ok(Math.abs(x-y)<tol, `${x} != ${y}`);
   assert.equal(await page.locator('#print').isEnabled(),true);
   const tip=page.locator('#identity .term');
   assert.ok(await tip.count()>0);await tip.first().focus();assert.equal(await page.locator('#identity .tip').first().isVisible(),true);
+  // v3.3: a ajuda do campo aparece ao passar o mouse/focar o rotulo e contem apenas a instrucao.
+  const ajudasDosCampos=page.locator('#identity .field .tip');
+  assert.ok(await ajudasDosCampos.count()>0);
+  const textoAjuda=await ajudasDosCampos.first().innerText();
+  assert.match(textoAjuda,/O que digitar/);
+  assert.ok(!/Onde achar/.test(textoAjuda),textoAjuda);
+  assert.equal(await page.locator('.fieldhelp').count(),0);
   await page.locator('#study').focus();
   await page.screenshot({path:path.join(artifacts,'desktop.png')});
   const download=async(id)=>{const promise=page.waitForEvent('download');await page.locator(id).click();const d=await promise;const target=path.join(artifacts,d.suggestedFilename());await d.saveAs(target);return target;};
@@ -116,7 +130,7 @@ const close = (x,y,tol=1e-8)=>assert.ok(Math.abs(x-y)<tol, `${x} != ${y}`);
   await page.emulateMedia({media:'print'});
   await page.pdf({path:path.join(artifacts,'memoria_exemplo.pdf'),format:'A4',printBackground:true});
   const report=await page.locator('#report').innerText();
-  for(const text of ['0,0850 ± 0,0052','Certificados','Dados de precisão','Check e recuperação','Orçamento','Glossário','Assinatura'])assert.ok(report.includes(text),text);
+  for(const text of ['0,0850 ± 0,0044','Certificados','Dados de precisão','Check independente','Orçamento','Glossário','Assinatura'])assert.ok(report.includes(text),text);
   assert.ok(!(await page.locator('#report .tip').count()));
   await page.emulateMedia({media:'screen'});
   await page.locator('#new').click();

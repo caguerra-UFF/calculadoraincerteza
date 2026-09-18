@@ -9,22 +9,16 @@
     "rangeMin": "0.005",
     "rangeMax": "0.150",
     "concentration": "0.085",
-    "dilution": "1",
     "responsible": "Analista responsável (fictício)",
     "date": "2026-09-11",
-    "version": "1",
     "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
     "checkValue": "0.010",
     "checkU": "0.00006",
     "checkK": "2",
     "checkCert": "CHECK-N-NO₂⁻-2026-019 — lote independente da calibração",
     "checkExpiry": "2027-03-01",
-    "checkValues": "-0.231121429\n-0.177550000\n-0.123978571\n-0.070407143\n-0.016835714\n0.036735714\n0.090307143\n0.143878571\n0.197450000\n0.251021429",
+    "checkValues": "0.009782791\n0.009819949\n0.009857106\n0.009894264\n0.009931421\n0.009968579\n0.010005736\n0.010042894\n0.010080051\n0.010117209",
     "biasJustification": "Exemplo didático: viés de −0,5% tratado pela abordagem Nordtest. O check de 0,010 mg/L, de lote diferente do MRC da calibração, cobre a escala da curva e o preparo de rotina. As duplicatas instrumentais da mesma alíquota são promediadas; o estudo usa corridas independentes.",
-    "recoveries": "-3967.28556307\n-3063.77766017\n-2160.26975726\n-1256.76185436\n-353.25395145\n550.25395145\n1453.76185436\n2357.26975726\n3260.77766017\n4164.28556307",
-    "spikeU": "0.3",
-    "spikeOrigin": "FORT-N-NO₂⁻-2026-008: orçamento independente da fortificação, u relativa = 0,3%.",
-    "recoveryJustification": "Efeito adicional de matriz após normalização pelo check em cada corrida; estudo independente das observações de precisão.",
     "coverage": "2",
     "coverageReason": "Exemplo de k convencional. Confirmar distribuição aproximadamente normal e graus de liberdade suficientes antes de associar 95%.",
     "decisionMode": "none",
@@ -35,13 +29,12 @@
   },
   "homogeneous": true,
   "independent": true,
-  "includeRecovery": true,
-  "residualRecovery": true,
+  "premisesNote": "",
   "checkLink": {
     "enabled": false,
     "certId": ""
   },
-  "autoRun": false,
+  "autoRun": true,
   "importedReports": [],
   "monthly": [
     {
@@ -52,7 +45,7 @@
       "equipment": "ESP-1",
       "lot": "R1",
       "rep": "1",
-      "result": "-11.415400000"
+      "result": "0.081184674"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -62,7 +55,7 @@
       "equipment": "ESP-2",
       "lot": "R1",
       "rep": "1",
-      "result": "-4.415400000"
+      "result": "0.083263568"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -72,7 +65,7 @@
       "equipment": "ESP-1",
       "lot": "R1",
       "rep": "1",
-      "result": "2.584600000"
+      "result": "0.085342462"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -82,7 +75,7 @@
       "equipment": "ESP-2",
       "lot": "R1",
       "rep": "1",
-      "result": "9.584600000"
+      "result": "0.087421356"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -92,7 +85,7 @@
       "equipment": "ESP-1",
       "lot": "R1",
       "rep": "1",
-      "result": "-7.415400000"
+      "result": "0.082372614"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -102,7 +95,7 @@
       "equipment": "ESP-2",
       "lot": "R1",
       "rep": "1",
-      "result": "-0.415400000"
+      "result": "0.084451508"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -112,7 +105,7 @@
       "equipment": "ESP-1",
       "lot": "R2",
       "rep": "1",
-      "result": "6.584600000"
+      "result": "0.086530402"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -122,7 +115,7 @@
       "equipment": "ESP-2",
       "lot": "R2",
       "rep": "1",
-      "result": "-10.415400000"
+      "result": "0.081481659"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -132,7 +125,7 @@
       "equipment": "ESP-1",
       "lot": "R2",
       "rep": "1",
-      "result": "-3.415400000"
+      "result": "0.083560553"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -142,7 +135,7 @@
       "equipment": "ESP-2",
       "lot": "R2",
       "rep": "1",
-      "result": "3.584600000"
+      "result": "0.085639447"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -152,7 +145,7 @@
       "equipment": "ESP-1",
       "lot": "R2",
       "rep": "1",
-      "result": "10.584600000"
+      "result": "0.087718341"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -162,7 +155,7 @@
       "equipment": "ESP-2",
       "lot": "R2",
       "rep": "1",
-      "result": "-6.415400000"
+      "result": "0.082669598"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -172,7 +165,7 @@
       "equipment": "ESP-1",
       "lot": "R3",
       "rep": "1",
-      "result": "0.584600000"
+      "result": "0.084748492"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -182,7 +175,7 @@
       "equipment": "ESP-2",
       "lot": "R3",
       "rep": "1",
-      "result": "7.584600000"
+      "result": "0.086827386"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -192,7 +185,7 @@
       "equipment": "ESP-1",
       "lot": "R3",
       "rep": "1",
-      "result": "-9.415400000"
+      "result": "0.081778644"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -202,7 +195,7 @@
       "equipment": "ESP-2",
       "lot": "R3",
       "rep": "1",
-      "result": "-2.415400000"
+      "result": "0.083857538"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -212,7 +205,7 @@
       "equipment": "ESP-1",
       "lot": "R3",
       "rep": "1",
-      "result": "4.584600000"
+      "result": "0.085936432"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -222,7 +215,7 @@
       "equipment": "ESP-2",
       "lot": "R3",
       "rep": "1",
-      "result": "11.584600000"
+      "result": "0.088015326"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -232,7 +225,7 @@
       "equipment": "ESP-1",
       "lot": "R4",
       "rep": "1",
-      "result": "-5.415400000"
+      "result": "0.082966583"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -242,7 +235,7 @@
       "equipment": "ESP-2",
       "lot": "R4",
       "rep": "1",
-      "result": "1.584600000"
+      "result": "0.085045477"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -252,7 +245,7 @@
       "equipment": "ESP-1",
       "lot": "R4",
       "rep": "1",
-      "result": "8.584600000"
+      "result": "0.087124371"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -262,7 +255,7 @@
       "equipment": "ESP-2",
       "lot": "R4",
       "rep": "1",
-      "result": "-8.415400000"
+      "result": "0.082075629"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -272,7 +265,7 @@
       "equipment": "ESP-1",
       "lot": "R4",
       "rep": "1",
-      "result": "-1.415400000"
+      "result": "0.084154523"
     },
     {
       "group": "CTRL-N-NO₂⁻ 0,085 mg/L",
@@ -282,7 +275,7 @@
       "equipment": "ESP-2",
       "lot": "R4",
       "rep": "1",
-      "result": "5.584600000"
+      "result": "0.086233417"
     }
   ],
   "certs": [

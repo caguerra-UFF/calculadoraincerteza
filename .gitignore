@@ -3,3 +3,7 @@ Thumbs.db
 scratch/
 *.tmp
 node_modules/
+__pycache__/
+*.pyc
+guia_calculadora/tmp/
+guia_calculadora/review/

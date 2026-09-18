@@ -1,0 +1,5 @@
+fitz True
+pypdf True
+PyPDF2 True
+pdf2image True
+PIL True
