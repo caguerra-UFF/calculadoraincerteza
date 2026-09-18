@@ -1,7 +1,7 @@
 /* Service Worker - Calculadora de Incerteza ISO/IEC 17025
    Cache local para funcionamento 100% offline em bancadas e laboratórios */
 
-const CACHE_NAME = 'incerteza-iso17025-v4.5';
+const CACHE_NAME = 'incerteza-iso17025-v4.6';
 const ASSETS = [
   './',
   './index.html',
@@ -14,6 +14,24 @@ const ASSETS = [
   './assets/logo_ien.png',
   './assets/logo_uerj.png',
   './assets/logo_uff.png',
+  './assets/icons/file-input.svg',
+  './assets/icons/file-output.svg',
+  './assets/icons/file-plus.svg',
+  './assets/icons/file-text.svg',
+  './assets/icons/file-up.svg',
+  './assets/icons/graduation-cap.svg',
+  './assets/icons/book-open-text.svg',
+  './assets/icons/moon.svg',
+  './assets/icons/expand.svg',
+  './assets/icons/repeat.svg',
+  './assets/icons/scale.svg',
+  './assets/icons/sigma.svg',
+  './assets/icons/square-sigma.svg',
+  './assets/icons/circle-check.svg',
+  './assets/icons/percent.svg',
+  './assets/icons/percent-circle.svg',
+  './assets/icons/waves.svg',
+  './assets/icons/boxes.svg',
   './guia_calculadora/vendor/pdfjs/pdf.min.js',
   './guia_calculadora/vendor/pdfjs/pdf.worker.min.js',
   './docs/Guia_Ilustrado_Calculadora_Incerteza_Nitrito.pdf'

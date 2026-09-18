@@ -1,0 +1,37 @@
+{
+  "$schema": "manifesto-de-icones/1.0",
+  "biblioteca": "Lucide Icons (lucide-static v1.47.0)",
+  "licenca": "ISC",
+  "origem": "https://unpkg.com/lucide-static@latest/icons/<nome>.svg",
+  "pasta": "C:\\Users\\NOVO OFFLINE\\.openclaw\\workspace\\icones-botoes\\icons",
+  "observacoes": {
+    "cor": "Todos usam stroke=\"currentColor\" — herdam a cor do texto. Nada de hardcode: funciona no tema claro e escuro sem alteração.",
+    "espessura": "Arquivos vêm com stroke-width=\"2\" (padrão Lucide). CSS sobrepõe atributo de apresentação, então basta `button svg{stroke-width:1.85}` para afinar em tamanhos maiores.",
+    "viewBox": "0 0 24 24 — escalável sem perda. Defina width/height em CSS, não é preciso regerar arquivo.",
+    "integracao": "Copiar para a pasta de assets do projeto. Se for Streamlit, trocar por Material Symbols (st.button icon=...) e usar a coluna 'equivalente_streamlit'."
+  },
+  "botoes_barra_acao": [
+    { "id": "importar-laudo-cary",       "arquivo": "file-input.svg",      "lucide": "file-input",      "rotulo": "Importar laudo Cary",      "tamanho_px": 24, "stroke_css": 1.85, "alternativas": ["upload", "clipboard-up", "flask-conical"] },
+    { "id": "memoria-calculo-pdf",       "arquivo": "file-text.svg",       "lucide": "file-text",       "rotulo": "Memória de cálculo (PDF)", "tamanho_px": 24, "stroke_css": 1.85, "alternativas": ["scroll-text", "sigma", "file-chart-column"] },
+    { "id": "exportar-json",             "arquivo": "file-output.svg",     "lucide": "file-output",     "rotulo": "Exportar JSON",            "tamanho_px": 24, "stroke_css": 1.85, "alternativas": ["download", "braces", "package-down"] },
+    { "id": "importar-json",             "arquivo": "file-up.svg",         "lucide": "file-up",         "rotulo": "Importar JSON",            "tamanho_px": 24, "stroke_css": 1.85, "alternativas": ["braces", "upload", "package-open"] },
+    { "id": "novo-calculo",              "arquivo": "file-plus.svg",       "lucide": "file-plus",       "rotulo": "Novo cálculo",             "tamanho_px": 24, "stroke_css": 1.85, "alternativas": ["square-plus", "calculator", "plus"] },
+    { "id": "exemplo-treinamento",       "arquivo": "graduation-cap.svg",  "lucide": "graduation-cap",  "rotulo": "Exemplo de treinamento",   "tamanho_px": 24, "stroke_css": 1.85, "alternativas": ["sparkles", "lightbulb", "flask-conical"] },
+    { "id": "guia-tecnico",              "arquivo": "book-open-text.svg",  "lucide": "book-open-text",  "rotulo": "Guia técnico",             "tamanho_px": 24, "stroke_css": 1.85, "alternativas": ["circle-help", "life-buoy", "book"] },
+    { "id": "tema-escuro",               "arquivo": "moon.svg",            "lucide": "moon",            "rotulo": "Tema escuro",              "tamanho_px": 24, "stroke_css": 1.85, "alternativas": ["sun-moon", "moon-star", "sun"], "nota": "trocar por sun.svg quando o tema escuro estiver ativo" }
+  ],
+  "indicadores_estatisticos": [
+    { "id": "resultado-y-u",   "arquivo": "sigma.svg",          "lucide": "sigma",          "rotulo": "Resultado y ± U",   "tamanho_px": 16, "stroke_css": 2, "recomendado": true,  "alternativas": ["target", "gauge"] },
+    { "id": "u-combinada",     "arquivo": "square-sigma.svg",   "lucide": "square-sigma",   "rotulo": "u_c",               "tamanho_px": 13, "stroke_css": 2, "recomendado": false, "alternativas": ["layers", "boxes"], "nota": "a 13px fica indistinguível de sigma" },
+    { "id": "u-expandida",     "arquivo": "expand.svg",         "lucide": "expand",         "rotulo": "U (k=2)",           "tamanho_px": 13, "stroke_css": 2, "recomendado": false, "alternativas": ["move-diagonal", "trending-up"], "nota": "risco: lê como botão de tela cheia" },
+    { "id": "u-relativa",      "arquivo": "percent.svg",        "lucide": "percent",        "rotulo": "U relativa",        "tamanho_px": 13, "stroke_css": 2, "recomendado": false, "alternativas": ["ratio", "divide"] },
+    { "id": "s-xp",            "arquivo": "waves.svg",          "lucide": "waves",          "rotulo": "s_xp",              "tamanho_px": 13, "stroke_css": 2, "recomendado": false, "alternativas": ["activity", "gauge", "chart-no-axes-column"], "nota": "vira rabisco a 13px" },
+    { "id": "rsd",             "arquivo": "percent-circle.svg", "lucide": "percent-circle", "rotulo": "RSD",               "tamanho_px": 13, "stroke_css": 2, "recomendado": false, "alternativas": ["ratio", "divide"], "nota": "conflita com U relativa (dois símbolos %)" },
+    { "id": "vies-b",          "arquivo": "scale.svg",          "lucide": "scale",          "rotulo": "Viés B",            "tamanho_px": 13, "stroke_css": 2, "recomendado": false, "alternativas": ["arrow-right-left", "diff"], "nota": "em laboratório pode ler como balança (equipamento)" },
+    { "id": "corridas",        "arquivo": "repeat.svg",         "lucide": "repeat",         "rotulo": "Corridas",          "tamanho_px": 13, "stroke_css": 2, "recomendado": false, "alternativas": ["list-checks", "layers"], "nota": "list-checks comunica melhor 24/24" },
+    { "id": "fontes-tipo-b",   "arquivo": "boxes.svg",          "lucide": "boxes",          "rotulo": "Fontes tipo B",     "tamanho_px": 13, "stroke_css": 2, "recomendado": false, "alternativas": ["list-tree", "package"] },
+    { "id": "calculo-disponivel", "arquivo": "circle-check.svg", "lucide": "circle-check",  "rotulo": "Cálculo disponível", "tamanho_px": 15, "stroke_css": 2.2, "recomendado": true, "alternativas": ["shield-check"] }
+  ],
+  "recomendacao_final": "Aplicar apenas 2 ícones na barra de resultados: sigma (rótulo RESULTADO) e circle-check (chip de status). Nos 8 micro-KPIs o ícone não adiciona informação — u_c, RSD e s_xp já são notação — e a 13px viraram manchas no teste de renderização.",
+  "fora_do_pacote": "svg/ (8 originais), svg-stat/ (30 alternativas já baixadas e verificadas), grande/ (versões 512px), build-sheet.js, build-stat.js"
+}
