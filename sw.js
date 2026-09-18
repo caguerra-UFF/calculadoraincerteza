@@ -1,7 +1,7 @@
 /* Service Worker - Calculadora de Incerteza ISO/IEC 17025
    Cache local para funcionamento 100% offline em bancadas e laboratórios */
 
-const CACHE_NAME = 'incerteza-iso17025-v4.3';
+const CACHE_NAME = 'incerteza-iso17025-v4.4';
 const ASSETS = [
   './',
   './index.html',
